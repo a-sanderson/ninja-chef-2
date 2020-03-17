@@ -1,11 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import MainStack from "./navigation/mainNavigator"
+import * as firebase from "firebase/app"
+import "firebase/auth";
+import { firebaseConfig } from './Config';
+
+firebase.initializeApp(firebaseConfig)
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <MainStack></MainStack>
   );
 }
 
