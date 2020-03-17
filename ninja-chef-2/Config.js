@@ -1,6 +1,7 @@
 import React from "react"
+import {API_KEY} from "react-native-dotenv"
 export const firebaseConfig = {
-    apiKey: "AIzaSyAiJIZDCoarT6kzzXtftnCAuJ5jHrVrBgQ",
+    apiKey: API_KEY,
     authDomain: "ninja-chef-2.firebaseapp.com",
     databaseURL: "https://ninja-chef-2.firebaseio.com",
     projectId: "ninja-chef-2",
