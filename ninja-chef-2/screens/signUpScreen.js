@@ -23,15 +23,11 @@ class SignUp extends React.Component {
     newUser = ()=> {
         let email = this.state.email
         let password = this.state.passWord
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if(error){
-                console.log(`${errorCode} ${errorMessage}`)
-            }
-            // ...
-          });
+        firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => this.props.navigation.navigate("Profile"))
+            .catch(error => console.log(error))
+
     }
     render(){
         return(
@@ -47,11 +43,12 @@ class SignUp extends React.Component {
                 <Input 
                     placeholder="password"
                     onChangeText={(passWord) => this.setState({passWord})}
-                    value={this.state.passWord}>
+                    value={this.state.passWord}
+                    password>
                 </Input>
                 <Input placeholder="address"></Input>
                 <Input placeholder="zip"></Input>
-                <Button color="grey" onPress={this.newUser()}>Submit</Button>
+                <Button color="grey" onPress={this.newUser}>Submit</Button>
             </View>
         )
     }
